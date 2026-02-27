@@ -6,9 +6,10 @@ This is a Java Swing application that simulates a store checkout system. It uses
 Files in this Project:
 
 Main.java - The starting point of the program. It initializes the data arrays and launches the application.
-StoreFrame.java - The main window where users select products and make purchases.
-LogsFrame.java - A window that displays the history of all transactions.
-InventoryFrame.java - A window that shows the current stock levels.
+StoreFrame1.java - The main window where users select products and make purchases.
+InventoryFrame2.java - A window that shows the current stock levels.
+LogsFrame3.java - A window that displays the history of all transactions.
+
 
 
 Sample Data:

@@ -15,8 +15,8 @@ public class LogsFrame3 extends JFrame {
         this.logTotals = lTot;
         this.transactionCount = tCount;
 
-        setTitle("Transaction Logs Frame");
-        setSize(400, 300);
+        setTitle("Transaction History");
+        setSize(400, 350); // Made it slightly taller to fit the total
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
@@ -33,9 +33,14 @@ public class LogsFrame3 extends JFrame {
         sb.append(String.format("%-5s %-15s %-5s %-10s\n", "ID", "PRODUCT", "QTY", "TOTAL"));
         sb.append("------------------------------------------\n");
 
-        int count = transactionCount[0]; // Get current number of transactions
+        int count = transactionCount[0];
+        double grandTotal = 0.0; // Variable to store the sum of all sales
 
         for (int i = 0; i < count; i++) {
+            // 1. Add current transaction to the Grand Total
+            grandTotal = grandTotal + logTotals[i];
+
+            // 2. Print the row
             sb.append(String.format("%-5d %-15s %-5d %-10.2f\n",
                     (i + 1),
                     logProducts[i],
@@ -43,6 +48,10 @@ public class LogsFrame3 extends JFrame {
                     logTotals[i]
             ));
         }
+
+        sb.append("------------------------------------------\n");
+        sb.append(String.format("%-28s %-10.2f\n", "GRAND TOTAL:", grandTotal));
+
         displayArea.setText(sb.toString());
     }
 }
